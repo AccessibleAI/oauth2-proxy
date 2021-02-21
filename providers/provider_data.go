@@ -187,6 +187,12 @@ func (p *ProviderData) getClaims(idToken *oidc.IDToken) (*OIDCClaims, error) {
 	if email != nil {
 		claims.Email = fmt.Sprint(email)
 	}
+	// This is a quick&dirty fix for adding support for ADFS
+	if email == nil {
+		if email, ok := claims.raw["upn"]; ok {
+			claims.Email = fmt.Sprint(email)
+		}
+	}
 	claims.Groups = p.extractGroups(claims.raw)
 
 	return claims, nil

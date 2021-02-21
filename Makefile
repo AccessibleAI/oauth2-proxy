@@ -2,9 +2,10 @@ GO ?= go
 GOLANGCILINT ?= golangci-lint
 
 BINARY := oauth2-proxy
-VERSION ?= $(shell git describe --always --dirty --tags 2>/dev/null || echo "undefined")
+#VERSION ?= $(shell git describe --always --dirty --tags 2>/dev/null || echo "undefined")
+VERSION ?= "v7.0.1.c1"
 # Allow to override image registry.
-REGISTRY ?= quay.io/oauth2-proxy
+REGISTRY ?= docker.io/cnvrg
 .NOTPARALLEL:
 
 GO_MAJOR_VERSION = $(shell $(GO) version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f1)
@@ -43,7 +44,7 @@ $(BINARY):
 
 .PHONY: docker
 docker:
-	$(DOCKER_BUILD) -f Dockerfile -t $(REGISTRY)/oauth2-proxy:latest .
+	$(DOCKER_BUILD) -f Dockerfile -t $(REGISTRY)/oauth2-proxy:${VERSION} .
 
 .PHONY: docker-all
 docker-all: docker
@@ -62,12 +63,12 @@ docker-push:
 .PHONY: docker-push-all
 docker-push-all: docker-push
 	docker push $(REGISTRY)/oauth2-proxy:latest-amd64
-	docker push $(REGISTRY)/oauth2-proxy:${VERSION}
-	docker push $(REGISTRY)/oauth2-proxy:${VERSION}-amd64
-	docker push $(REGISTRY)/oauth2-proxy:latest-arm64
-	docker push $(REGISTRY)/oauth2-proxy:${VERSION}-arm64
-	docker push $(REGISTRY)/oauth2-proxy:latest-armv6
-	docker push $(REGISTRY)/oauth2-proxy:${VERSION}-armv6
+#	docker push $(REGISTRY)/oauth2-proxy:${VERSION}
+#	docker push $(REGISTRY)/oauth2-proxy:${VERSION}-amd64
+#	docker push $(REGISTRY)/oauth2-proxy:latest-arm64
+#	docker push $(REGISTRY)/oauth2-proxy:${VERSION}-arm64
+#	docker push $(REGISTRY)/oauth2-proxy:latest-armv6
+#	docker push $(REGISTRY)/oauth2-proxy:${VERSION}-armv6
 
 .PHONY: generate
 generate:
