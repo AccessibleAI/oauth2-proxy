@@ -1,0 +1,76 @@
+body {
+  background: var(--container-background);
+}
+
+.app-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 130px 220px;
+}
+
+.app-container .logo {
+  position: absolute;
+  left: 26px;
+  top: 30px;
+}
+
+.app-container .cv-content {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  box-shadow: 0 4px 19px 0 #ACA4A430;
+  width: 1000px;
+  height: 522px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.app-container .cv-content .half {
+  width: 50%;
+  height: 100%;
+}
+.app-container .cv-content .half .image-container {
+  background: linear-gradient(269.76deg, #FFFFFF 0.22%, #E4EDFF 99.8%);
+}
+
+.login-reset-password-image {
+  height: 100%;
+  width: 100%;
+}
+
+.error-text{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.error-text h1{
+  font-family: "Montserrat", sans-serif;
+  color: var(--blue2);
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.error-text h2{
+  color: var(--grey1);
+  font-size: 18px;
+  line-height: 25px;
+  margin-top: 24px;
+}
+
+.error-text p{
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 24px;
+}
+
+.error-text p a{
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--blue1);
+  text-decoration: underline;
+}
