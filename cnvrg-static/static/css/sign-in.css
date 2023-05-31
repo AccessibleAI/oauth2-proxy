@@ -1,0 +1,76 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #EEF3F9;
+}
+
+.cnvrg-logo {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+}
+
+.sign-in-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-in-card {
+    display: flex;
+    height: 500px;
+    width: 1000px;
+    border-radius: 22px;
+    box-shadow: 0 4px 19px 0 #aca4a430;
+    background-image: url("https://cnvrg-saas-email-images.s3.us-west-2.amazonaws.com/login-background.png");
+    background-size: cover;
+}
+
+.sign-in-card h1 {
+    font-size: 24px;
+    color: #1B5CB3;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sign-in-card h5 {
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.25;
+}
+
+.sso-button {
+    background-color: #2F80ED;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 16px;
+    border-radius: 22px;
+}
+
+.sso-button:hover {
+    background-color: #1B5CB3;
+}
+
+.sign-in-decorator {
+    display: flex;
+    align-items: flex-end;
+    width: 50%;
+}
+
+.sign-in-decorator img {
+    width: 357px;
+    height: 357px;
+    margin-bottom: 14px;
+}
+
+.sign-in-form {
+    display: flex;
+    width: 50%;
+    gap: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
