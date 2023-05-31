@@ -1,16 +1,35 @@
+<!--
+Online HTML, CSS and JavaScript editor to run code online.
+-->
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8">
-    <title>Sign in to Cnvrg</title>
-    <style>
-        body {
-            background: #EEF3F9;
-            background-size: cover;
-            height: 100%;
-        }
-    </style>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./static/css/reset.css" />
+    <link rel="stylesheet" href="./static/css/sign-in.css" />
+    <title>Browser</title>
 </head>
+
 <body>
-<button onclick='window.location.replace("/oauth2/start");'>Login</button>
+
+    <div class="sign-in-container">
+        <img src="https://cnvrg-saas-email-images.s3.us-west-2.amazonaws.com/cnvrgio-logo.svg" alt="cnvrg logo" class="cnvrg-logo" />
+
+        <div class="sign-in-card">
+            <div class="sign-in-decorator">
+                <img src="https://cnvrg-saas-email-images.s3.us-west-2.amazonaws.com/computer-with-shadow.png" alt="computer image"/>
+            </div>
+
+            <div class="sign-in-form">
+                <h1>Log In To Your Account</h1>
+                <h5>Authenticate your account through <br> single sign-on provider</h5>
+                <button onclick='window.location.replace("/oauth2/start");' class="sso-button">Continue with SSO
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
