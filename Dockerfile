@@ -57,8 +57,9 @@ RUN case ${TARGETPLATFORM} in \
 ARG RUNTIME_IMAGE
 # Copy binary to runtime image
 FROM ${RUNTIME_IMAGE}
-# Reload version
-ARG VERSION
+COPY nsswitch.conf /etc/nsswitch.conf
+RUN mkdir /cnvrg-static
+ADD cnvrg-static /cnvrg-static
 
 COPY --from=builder /go/src/github.com/oauth2-proxy/oauth2-proxy/oauth2-proxy /bin/oauth2-proxy
 COPY --from=builder /go/src/github.com/oauth2-proxy/oauth2-proxy/jwt_signing_key.pem /etc/ssl/private/jwt_signing_key.pem
