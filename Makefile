@@ -30,7 +30,7 @@ GOLANGCILINT ?= golangci-lint
 BINARY := oauth2-proxy
 VERSION ?= $(shell git describe --always --dirty --tags 2>/dev/null || echo "undefined")
 # Allow to override image registry.
-REGISTRY   ?= quay.io/oauth2-proxy
+REGISTRY   ?= cnvrg
 REPOSITORY ?= oauth2-proxy
 
 DATE := $(shell date +"%Y%m%d")
@@ -82,6 +82,11 @@ build-distroless: ## Build multi architecture distroless based docker image
 .PHONY: build-alpine
 build-alpine: ## Build multi architecture alpine based docker image
 	$(DOCKER_BUILDX_X_PLATFORM_ALPINE) -t $(REGISTRY)/$(REPOSITORY):latest-alpine -t $(REGISTRY)/$(REPOSITORY):${VERSION}-alpine .
+
+.PHONY: build-cnvrg
+build-cnvrg: ## Build multi architecture alpine based docker image
+	docker build -t $(REGISTRY)/$(REPOSITORY):latest -t $(REGISTRY)/$(REPOSITORY):${VERSION} .
+
 
 .PHONY: build-docker-all
 build-docker-all: build-docker ## Build docker images for all supported architectures in both flavours (distroless / alpine)
